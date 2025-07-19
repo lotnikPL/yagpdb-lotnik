@@ -105,20 +105,15 @@ footer {
 }
 
 .top-bar {
-  background-color: #222;
-  color: #fff;
-  padding: 10px 20px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 10px 20px;
+  background-color: #1f1e1e;
 }
-.lang-switch {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-.lang-switch img {
+
+.top-bar a img {
   width: 24px;
-  height: 24px;
-  margin-left: 8px;
+  height: auto;
+  cursor: pointer;
 }
