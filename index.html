@@ -44,13 +44,11 @@
     gtag('config', 'G-YHY6ET941L');
     window.onload = function() {
       var loader = document.querySelector('.loader');
-      var lang = navigator.language || navigator.userLanguage;
-      lang = lang.toLowerCase();
-      console.log('Language detected:', lang);
+      var langs = navigator.languages ? navigator.languages.map(function(langCode){return langCode.toLowerCase();}) : [(navigator.language || navigator.userLanguage).toLowerCase()];
       setTimeout(function() {
         loader.classList.add('hide');
         setTimeout(function() {
-          if (lang.startsWith('pl')) {
+          if (langs.some(function(langCode){return langCode.startsWith('pl');})) {
             window.location.replace('pl/index.html');
           } else {
             window.location.replace('en/index.html');
