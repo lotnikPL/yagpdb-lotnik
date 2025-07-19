@@ -12,9 +12,37 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YHY6ET941L');
+  
+  // button
+  function switchLanguage() {
+  const currentUrl = window.location.href;
+
+  if (currentUrl.includes("/en/")) {
+    window.location.href = currentUrl.replace("/en/", "/pl/");
+  } else if (currentUrl.includes("/pl/")) {
+    window.location.href = currentUrl.replace("/pl/", "/en/");
+  } 
+}
+  const label = document.getElementById("lang-label");
+  const icon = document.getElementById("lang-icon");
+  if (window.location.href.includes("/pl/")) {
+    label.textContent = "PL";
+    icon.src = "https://flagcdn.com/24x18/pl.png";
+  }
+  else {
+    label.textContent = "EN";
+    icon.src = "https://flagcdn.com/24x18/gb.png";
+  }
 </script>
 <body>
   <main>
+    <div class="top-bar">
+      <div class="lang-switch" onclick="switchLanguage()">
+        <span id="lang-label">EN</span>
+        <img src="https://flagcdn.com/24x18/gb.png" alt="Language Icon" id="lang-icon">
+      </div>
+    </div>
+    
     <h1>Help with YAGPDB and Discord setup</h1>
     <p>Hello! As an official member of the <strong>YAGPDB.xyz</strong> support team, I offer private help with bot setup and custom solutions.</p>
     <section>
@@ -46,7 +74,7 @@
   </main>
   <footer>
     <hr />
-    <p>Site hosted by GitHub Pages • By lotnik_pl</p>
+    <p>Site hosted by GitHub Pages • &copy; 2025 lotnik_pl</p>
   </footer>
 </body>
 </html>
