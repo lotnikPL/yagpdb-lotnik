@@ -18,6 +18,12 @@
       text-align: center;
       font-size: 1.5em;
       color: #333;
+      opacity: 1;
+      transition: opacity 0.7s ease;
+    }
+    .loader.hide {
+      opacity: 0;
+      pointer-events: none;
     }
     .spinner {
       margin: 1em auto;
@@ -40,13 +46,20 @@
     gtag('js', new Date());
     gtag('config', 'G-YHY6ET941L');
     window.onload = function() {
+      var loader = document.querySelector('.loader');
       var lang = navigator.language || navigator.userLanguage;
       lang = lang.toLowerCase();
-      if (lang.startsWith('pl')) {
-        window.location.replace('pl/index.html');
-      } else {
-        window.location.replace('en/index.html');
-      }
+      console.log('Wykryty język przeglądarki:', lang);
+      setTimeout(function() {
+        loader.classList.add('hide');
+        setTimeout(function() {
+          if (lang.startsWith('pl')) {
+            window.location.replace('pl/index.html');
+          } else {
+            window.location.replace('en/index.html');
+          }
+        }, 700); // czas na animację zanikania
+      }, 600); // czas wyświetlania loadera
     };
   </script>
 </head>
